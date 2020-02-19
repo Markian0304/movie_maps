@@ -4,8 +4,14 @@ import pycountry
 import time
 import folium
 
-year = int(input("¬вед≥ть р≥к: "))
-user_place = list(float(input())) #[48.861927, 24.021425]
+year = int(input("P;ease enter year: "))
+user_place = inp = input("Please enter your location (format: lat, long): ")
+try:
+    user_place = list(map(float, inp.split(', ')))
+except Exception as ex:
+    print('Incorrect data!')
+    print(ex)
+    exit()
 
 geolocator = Nominatim(user_agent="Mozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.157 Mobile Safari/537.36")
 
